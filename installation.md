@@ -23,7 +23,9 @@ This guide presents the installation procedure for a custom version of MORSE use
 	More about the cmake options and installation details can be found [here](https://www.openrobots.org/morse/doc/1.2/user/installation.html). **DO NOT** install using apt as it is not compatible with CoHAN and also has few unresolved issues with ros-melodic.
 	
 3. Install blender, if it is not already installed
+
 	Ubuntu 18.04: ``` sudo apt install blender=2.79.b+dfsg0-1ubuntu1.18.04.1 ```
+
 	Ubuntu 16.04: ``` sudo apt install blender=2.76.b+dfsg0-3build1 ``` 
 	
 4. Check if everything is installed properly
