@@ -308,9 +308,9 @@ MORSE_DATASTREAM_DICT = {
             "moos": 'morse.middleware.moos.pose.PoseNotifier'
             }
         },
-    "morse.sensors.human_marker.HumanMarker": {
+    "morse.sensors.agent_marker.AgentMarker": {
         "default": {
-            "ros": ['morse.middleware.ros.human_marker.HumanMarkerPublisher'],
+            "ros": ['morse.middleware.ros.agent_marker.AgentMarkerPublisher'],
             }
         },
     "morse.sensors.proximity.Proximity": {
@@ -435,9 +435,9 @@ MORSE_DATASTREAM_DICT = {
             }
         },
 
-    "morse.middleware.ros.humans_msgs.msg.HumanArray":{
+    "morse.middleware.ros.cohans_msgs.msg.AgentArray":{
         "default": {
-            "ros" : 'morse.middleware.ros.humans_msgs.msg.HumanArray',
+            "ros" : 'morse.middleware.ros.cohans_msgs.msg.AgentArray',
         }
     },
 

@@ -1,7 +1,7 @@
 import logging; logger = logging.getLogger("morse." + __name__)
 from geometry_msgs.msg import Pose, PoseStamped, PoseWithCovarianceStamped, Vector3, Quaternion, TwistStamped, Twist
 from morse.middleware.ros import ROSPublisher, ROSPublisherTF, mathutils
-from morse.middleware.ros.human_msgs.msg import HumanMarkerStamped
+from morse.middleware.ros.cohan_msgs.msg import AgentMarkerStamped
 
 def get_orientation(self):
     """ Get the orientation from the local_data
@@ -49,20 +49,20 @@ def get_pose(self):
 
     return pose
 
-class HumanMarkerPublisher(ROSPublisher):
-    """ Published human marker message which contains the following information.
+class AgentMarkerPublisher(ROSPublisher):
+    """ Published agent marker message which contains the following information.
     1. The twist of the robot.
     2. The position and orientation of the robot as ROS geometry_msgs.Pose
        message.
-    3. h_id of the human which needs to be initialized (default = 1)
-    4. active status of the human to accept the velocity commands
+    3. h_id of the agent which needs to be initialized (default = 1)
+    4. active status of the agent to accept the velocity commands
     """
-    ros_class = HumanMarkerStamped
+    ros_class = AgentMarkerStamped
     default_frame_id = '/map'
 
     def default(self, ci='unused'):
-        human = HumanMarkerStamped()
-        human.header = self.get_ros_header()
+        agent = AgentMarkerStamped()
+        agent.header = self.get_ros_header()
         if 'valid' not in self.data or self.data['valid']:
             pose = get_pose(self)
 
@@ -74,9 +74,9 @@ class HumanMarkerPublisher(ROSPublisher):
         twist.angular.y = self.data['angular_velocity'][1]
         twist.angular.z = self.data['angular_velocity'][2]
 
-        human.human.id = 0
-        human.human.active = False
-        human.human.pose = pose
-        human.human.velocity = twist
+        agent.agent.id = 0
+        agent.agent.active = False
+        agent.agent.pose = pose
+        agent.agent.velocity = twist
 
-        self.publish(human)
+        self.publish(agent)

@@ -6,10 +6,10 @@ from math import degrees
 from morse.helpers.velocity import linear_velocities, angular_velocities
 from copy import copy
 
-class HumanMarker(morse.core.sensor.Sensor):
+class AgentMarker(morse.core.sensor.Sensor):
     """
     This sensor is a combination of Pose and Velocity sensors customised
-    for HumanMarker. The descriptioon each of these components is given
+    for AgentMarker. The descriptioon each of these components is given
     below.
 
     Pose Sensor:
@@ -24,8 +24,8 @@ class HumanMarker(morse.core.sensor.Sensor):
     The sensor expects that the associated robot has a physics controller.
 
     """
-    _name = "HumanMarker"
-    _short_descr = "A HumanMarker Sensor"
+    _name = "AgentMarker"
+    _short_descr = "A AgentMarker Sensor"
 
     add_data('x', 0.0, "float",
              'x coordinate of the sensor, in world coordinate, in meter')

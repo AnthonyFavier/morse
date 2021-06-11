@@ -65,12 +65,12 @@ class Gyroscope(SensorCreator):
         mesh.color(.8, .4, .1)
         self.append(mesh)
 
-class HumanMarker(SensorCreator):
-    _classpath = "morse.sensors.human_marker.HumanMarker"
+class AgentMarker(SensorCreator):
+    _classpath = "morse.sensors.agent_marker.AgentMarker"
 
     def __init__(self, name=None):
         SensorCreator.__init__(self, name)
-        mesh = Cube("HumanMarkerCube")
+        mesh = Cube("AgentMarkerCube")
         mesh.scale = (.04, .04, .02)
         mesh.color(.1, .3, .7)
         self.append(mesh)
