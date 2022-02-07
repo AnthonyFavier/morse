@@ -155,8 +155,9 @@ class NavPR2(BasePR2):
     A PR2 equipped with sensors and actuators required for 2D navigation.
 
     """
-    def __init__(self, name = None, with_keyboard = True, show_laser = False, laser_z = 0.252):
+    def __init__(self, name = None, with_keyboard = True, show_laser = False, laser_z = 0.252, namespace = ""):
         BasePR2.__init__(self, name)
+        self.namespace = namespace
 
         ###################################
         # Actuators
@@ -204,8 +205,8 @@ class NavPR2(BasePR2):
         if interface == "socket":
             pass
         elif interface == "ros": 
-            self.base_scan.add_stream("ros", topic="/scan")
-            self.odometry.add_stream("ros", topic="/odom")
-            self.motion.add_stream("ros", topic="/cmd_vel")
+            self.base_scan.add_stream("ros", topic=self.namespace+"/scan")
+            self.odometry.add_stream("ros", topic=self.namespace+"/odom")
+            self.motion.add_stream("ros", topic=self.namespace+"/cmd_vel")
 
 
